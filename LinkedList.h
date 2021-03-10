@@ -1,29 +1,22 @@
 #ifndef LinkedList_h
 #define LinkedList_h
 #include <iostream>
-#include "Student.h"
+#include "Node.h"
 
+template <class Type>
 class LinkedList
 {
 public:
-    LinkedList(int id, std::string name);
-    LinkedList(Student s);
-    int getStudentID() const;
-    std::string getStudentName() const;
-    void addNode(int id, std::string name);
-    void addNode(Student s);
-    LinkedList *getNextStudent();
-    LinkedList *getPrevStudent();
-
-    LinkedList *operator++(int);
-    LinkedList *operator--(int);
+    LinkedList();
+    void addBeginning(Type node);
+    void addEnd(Type node);
+    void addAfter(Type pos, Type node);
+    Type getData();
+    int Size();
 
     ~LinkedList();
 
 private:
-    Student s;
-    LinkedList *nextNode;
-    LinkedList *prevNode;
-    void init();
+    Node<Type> *head;
 };
 #endif
